@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Righteous&display=swap');
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.app {
-  max-width: 100vw;
-  min-height: 100vh;
-  color: #222222;
+body {
+    max-width: 100vw;
+    max-height: 100vh;
 }
 
+section {
+    transition: all 0.3s ease;
+}
 
 
 /*Navbar*/
@@ -28,10 +30,17 @@
     left: 1rem;
     cursor: pointer;
     z-index: 99;
+    transition: 0.1s ease;    
     
     span {
     background-color: rgb(0, 0, 0);
     }
+}
+.nav-icon:hover {
+    transform: scale(1.1);
+}
+.nav-icon:active {
+    transform: scale(0.9);
 }
 
 nav {
@@ -49,12 +58,10 @@ nav {
     transform: translateX(-110%);
     transition: all 0.3s ease;
   
-
     ul {
         list-style-type: none;
         padding: 0;
     
-
         li {
             margin: 1rem 0;
             cursor: pointer;
@@ -64,6 +71,20 @@ nav {
             line-height: 31.06px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
+            transition: 0.1s;
+            text-align: center;
+        }
+        li:nth-child(1) {
+            margin-left: -54px;
+        }
+        li:hover {
+            text-shadow: 0px 0px 10px white;
+            font-size: 32px;
+            transition: 0.2s;
+        }
+        li:active {
+            text-shadow: 0px 0px 10px white;
+            font-size: 12px;
         }
     }
 }
@@ -103,6 +124,7 @@ nav {
     display: grid;
     grid-template-columns: 1fr 2fr 3fr 4fr;
     gap: 2px;
+    transition: 0.3s ease;
 
     span {
     background-color: rgb(255, 255, 255);
@@ -116,6 +138,7 @@ nav {
     line-height: 24.83px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    transition: 0.3s ease;
     }
 
     h2 {
@@ -124,7 +147,32 @@ nav {
     font-weight: 400;
     line-height: 18.12px;
     letter-spacing: 0.1em;
-    text-align: center;        
+    text-align: center;   
+    transition: 0.3s ease;     
+    }
+    #loadingBtn {
+    border-radius: 50%;
+    }
+    #loadingBtn:hover h1,
+    #loadingBtn:hover h2 {
+    text-shadow: 0px 0px 10px white;
+    }
+    #loadingBtn:hover .logo {
+    box-shadow: 0px 0px 10px white;
+    }
+    #loadingBtn:active h1,
+    #loadingBtn:active h2 {
+    text-shadow: 0px 0px 100px white;
+    transition: 0.1s ease;
+    }
+    #loadingBtn:active .logo {
+    box-shadow: 0px 0px 100px white;
+    transition: 0.1s ease;
+    }
+    #loadingBtn:active {
+    transform: scale(3);
+    transition: all 0.2s ease;
+    opacity: 0;
     }
 }
 
@@ -210,6 +258,7 @@ nav {
     justify-content: space-between;
     flex-direction: column;
     padding: 16px 48px 48px 48px;
+    margin-top: -10vh;
 
     .clock {
         width: 300px;
@@ -222,7 +271,7 @@ nav {
         position: relative;
 
     }  
-    .min {
+    .sec {
         height: 50%;
         width: 3px;
         background: #555555;
@@ -230,7 +279,7 @@ nav {
         position: absolute;
     }
 
-    .sec {
+    .min {
         height: 40%;
         width: 1px;
         background: #222222;
@@ -252,6 +301,7 @@ nav {
     justify-content: space-between;
     flex-direction: column;
     padding: 16px 48px 48px 48px;
+    margin-top: -10vh;
 
     .timer {
         font-family: PT Sans;
@@ -260,6 +310,89 @@ nav {
         line-height: 103.52px;
         letter-spacing: 0.1em;
         text-align: center;
+    }
+}
+
+/*Alarm View*/
+.alarm-view-section {
+    margin-top: -10%;
+    background-color: #222222;
+    position: relative;
+    max-height: 110vh;
+    height: 110vh;
+    max-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 100px;
+    z-index: 99;
+
+    .times-up {
+        margin-top: 33.3vh;
+
+        .times-up__title {
+            font-family: PT Sans;
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: white;
+            animation: rotateText 1s infinite alternate;
+        }
+
+        span {
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: calc(50% - 1px);
+            left: calc(50% - 1px);
+            animation: scaleUp 1s infinite alternate;
+        }
+        
+    }
+
+    .alarm-view__btn {
+        width: 200px;
+        height: 41px;
+        color: white;
+        text-transform: uppercase;
+        background: none;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #FFFFFF;
+        font-family: PT Sans;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        filter: opacity(0.6);
+        cursor: pointer;
+    }
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(300);
+    }
+}
+
+@keyframes rotateText {
+    0% {
+        transform: translateY(-100);
+    }
+    100% {
+        transform: translateY(50px);
+    }
+}
+
+@media screen and (max-width: 532px){
+    .alarm-view-section {
+        margin-top: -30%;
+        height: 120vh;
     }
 }
 
@@ -282,6 +415,7 @@ nav {
     background: none;
     text-transform: uppercase;
     cursor: pointer;
+    filter: opacity(0.6);
 }
 
 .interval-heading {
@@ -293,8 +427,29 @@ nav {
     text-align: center;
 }
 
+button {
+    transition: 0.2s ease;
+}
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 5px 5px 15px black;
+    rotate: 1deg;
+}
+button:active {
+    transform: scale(0.9);
+    box-shadow: 5px 5px 5px black;
+}
+
+.alarm-view__btn:hover {
+    box-shadow: 5px 5px 15px rgb(150, 150, 150);
+}
+.alarm-view__btn:active {
+    box-shadow: 5px 5px 5px rgb(150, 150, 150);
+}
 
 /*hiding*/
 .hide {
-    display: none;
+    transform: translateY(-110vh);
+    visibility: hidden;
+    height: 0;
 }

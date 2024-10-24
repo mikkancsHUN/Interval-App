@@ -8,24 +8,22 @@
 </head>
 <body>
 
-    <!--Navbar-->
     <figure class='nav-icon'>
       <span></span>
       <span></span>
       <span></span>
       <span></span>
     </figure>
-  <nav class="navbar">
-    <ul>
-      <li>Set Timer</li>
-      <li>Analog Timer</li>
-      <li>Digital Timer</li>
-    </ul>
-  </nav>
+    <nav class="navbar">
+      <ul>
+        <li id="navSet" class="navbar__item">Set Timer</li>
+        <li id="navAn" class="navbar__item">Analog Timer</li>
+        <li id="navDig" class="navbar__item">Digital Timer</li>
+      </ul>
+    </nav>
 
-    <!--Loading-->
     <section class="loading-section">
-      <div>
+      <div id="loadingBtn">
         <figure class='logo'>
           <span></span>
           <span></span>
@@ -37,9 +35,8 @@
       </div>
     </section>
 
-    <!--Set Timer-->
-    <section class="set-timer-section">
-        <section class='set-timer__time'>
+    <section class="set-timer-section hide">
+        <div class='set-timer__time'>
             <svg class='decrease' xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px">
               <path d="M561-240 320-481l241-241 43 43-198 198 198 198-43 43Z" />
             </svg>
@@ -48,33 +45,38 @@
               <path d="M530-481 332-679l43-43 241 241-241 241-43-43 198-198Z" />
             </svg>
             <p>minutes</p>
-          </section>
-          <section class='set-timer__footer'>
+          </div>
+          <footer class='set-timer__footer'>
             <button id="setTimer" class="startButton">Start Timer</button>
-          </section>
+          </footer>
     </section>
 
-    <!--Analog Timer-->
-    <section class="analog-timer-section">
+    <section class="analog-timer-section hide">
         <h2 class="interval-heading">Interval</h2>
         <figure class='clock'>
             <span class="min"></span>
             <span class="sec"></span>
         </figure>
-        <button class="abort-btn">Abort Timer</button>
+        <button id="abortBtnAnalog" class="abort-btn">Abort Timer</button>
     </section>
 
-    <!--Digital Timer-->
-    <section class="digital-timer-section">
+    <section class="digital-timer-section hide">
         <h2 class="interval-heading">Interval</h2>
         <span class="values timer">00:00:00</span>
-        <button class="abort-btn">Abort Timer</button>
+        <button id="abortBtnDigital" class="abort-btn">Abort Timer</button>
     </section>
 
-    <!--Alarm View-->
-    <section class="alarm-view-section"></section>
+    <section class="alarm-view-section hide">
+      <div class="times-up">
+        <figure></figure>
+        <h2 class="times-up__title">Times up!</h2>
+        <span></span>
+      </div>
+      <button class="alarm-view__btn">Set new timer</button>
+    </section>
 
-    <script src="easytimer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script src="timer.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
