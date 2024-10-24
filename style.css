@@ -236,6 +236,14 @@ nav {
         svg {
             position: absolute;
             cursor: pointer;
+            transition: 0.2s ease;
+        }
+        svg:hover {
+           transform: scale(1.5);
+        }
+        svg:active {
+           transform: scale(0.8);
+           transition: 0.1s ease;
         }
         .decrease {
             left: 0;
